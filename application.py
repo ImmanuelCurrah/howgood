@@ -9,10 +9,12 @@ how_good_application_domain = os.environ["HOW_GOOD_APPLICATION_DOMAIN"]
 how_good_application_endpoint = os.environ["HOW_GOOD_APPLICATION_ENDPOINT"]
 application_submit_endpoint = how_good_application_domain + how_good_application_endpoint
 
+print(application_submit_endpoint)
+
 email = os.environ["EMAIL"]
 resume_url = os.environ["RESUME_URL"]
 current_location = os.environ["LOCATION"]
-linkedin_url = os.environm["LINKEDIN_URL"]
+linkedin_url = os.environ["LINKEDIN_URL"]
 github_repo_url = os.environ["GITHUB_REPO_URL"]
 
 payload = {
@@ -28,12 +30,12 @@ payload = {
 
 json_formatted_payload = json.dumps(payload)
 
-authentication_signature = hmac.new(secret.encode(), body.encode(), hashlib.sha256).hexidigest()
+authentication_signature = hmac.new(howgood_application_secret.encode(), json_formatted_payload.encode(), hashlib.sha256).hexdigest()
 
 response = requests.post(
         application_submit_endpoint, 
         data=json_formatted_payload,
-        heads={
+        headers={
             "Content-Type": "application/json",
             "X-HMAC-Signature": authentication_signature,
             },
