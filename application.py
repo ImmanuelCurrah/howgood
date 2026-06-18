@@ -19,10 +19,10 @@ payload = {
         "name": "Immanuel Currah",
         "email": email, 
         "resume": resume_url,
-        "location":, current_location,
-        "linkedin", linkedin_url,
+        "location": current_location,
+        "linkedin": linkedin_url,
         "codeLink": github_repo_url,
-        "yearsPython", 2,
+        "yearsPython": 2,
         "yearsDjango": 0,
         }
 
