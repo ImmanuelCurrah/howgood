@@ -9,7 +9,6 @@ how_good_application_domain = os.environ["HOW_GOOD_APPLICATION_DOMAIN"]
 how_good_application_endpoint = os.environ["HOW_GOOD_APPLICATION_ENDPOINT"]
 application_submit_endpoint = how_good_application_domain + how_good_application_endpoint
 
-print(application_submit_endpoint)
 
 email = os.environ["EMAIL"]
 resume_url = os.environ["RESUME_URL"]
